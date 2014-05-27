@@ -8,18 +8,27 @@
         'ngSanitize'
     ])
         .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+            $locationProvider.html5Mode(true);
             $urlRouterProvider.otherwise('/');
             $stateProvider
                 .state('root', {
                     url: '',
                     abstract: true,
+
                     views: {
                         'header': {
-                            templateUrl: 'static/templates/header.html',
-                            controller: 'HeaderController'
+                            templateUrl: 'views/header.html'
                         },
                         'footer': {
-                            templateUrl: 'static/templates/footer.html'
+                            templateUrl: 'views/footer.html'
+                        }
+                    }
+                })
+                .state('root.home', {
+                    url: '/',
+                    views: {
+                        'container@': {
+                            templateUrl: 'views/home.html'
                         }
                     }
                 });
