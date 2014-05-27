@@ -338,6 +338,23 @@ module.exports = function (grunt) {
         configFile: 'karma.conf.js',
         singleRun: true
       }
+    },
+
+    aws: grunt.file.readJSON('./aws.json'),
+    s3: {
+        options: {
+            key: '<%= aws.key %>',
+            secret: '<%= aws.secret %>',
+            bucket: '<%= aws.bucket %>',
+            access: 'public-read',
+        },
+        dist: {
+            upload: [{
+                src: 'dist/**',
+                dest: '',
+                rel: 'dist'
+            }]
+        }
     }
   });
 
@@ -391,5 +408,10 @@ module.exports = function (grunt) {
     'newer:jshint',
     'test',
     'build'
+  ]);
+
+  grunt.registerTask('deploy', [
+    'build',
+    's3:dist'
   ]);
 };
