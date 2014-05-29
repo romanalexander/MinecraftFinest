@@ -7,7 +7,10 @@
         $scope.links = [
             {name: 'Home', sref: 'root.home'},
             {name: 'Forums', href: '/forum/'},
-            {name: 'Debug Root', sref: 'root.test'}
+            {name: 'Debug Root', sref: 'root.test'},
+            {name: 'Store', sref: 'root.store'},
+            {name: 'Leaderboards', sref: 'root.leaderboards'},
+            {name: 'Help/Support', sref: 'root.help'}
         ];
     }]);
 
