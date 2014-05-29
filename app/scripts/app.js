@@ -5,7 +5,10 @@
         'ui.router',
         'ngAnimate',
         'ngResource',
-        'ngSanitize'
+        'ngSanitize',
+        'minecraftFinestApp.services',
+        'minecraftFinestApp.directives',
+        'minecraftFinestApp.controllers'
     ]).config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
         $locationProvider.html5Mode(true);
         $urlRouterProvider.otherwise('/');
@@ -13,7 +16,6 @@
             .state('root', {
                 url: '',
                 abstract: true,
-
                 views: {
                     'header': {
                         templateUrl: 'views/header.html'
@@ -27,7 +29,9 @@
                 url: '/',
                 views: {
                     'container@': {
-                        templateUrl: 'views/home.html'
+                        templateUrl: 'views/home.html',
+                        controller: 'GameServiceAPI',
+                        controllerAs: 'api'
                     }
                 }
             });

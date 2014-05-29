@@ -3,10 +3,23 @@
 
     var app = angular.module('minecraftFinestApp.services', []);
 
-    app.factory('GameServiceAPIFactory', ['$http', function($http) {
+    app.factory('gameServiceAPIFactory', ['$http', '$log', function($http, $log) {
         return {
-            getAllOnlinePlayers: function(count, page) {
-                return $http.get('/api/users', {'params': {'count': count, 'page': page}});
+            /**
+             * Retreives an array of online users.
+             * @param count (optional) Count of players to pull. Defaults to 100.
+             * @returns {HttpPromise}
+             */
+            getAllOnlinePlayers: function() {
+                //count = count || 100;
+                var count = 100;
+                return $http.get('/api/users', {'params': {'count': count}});
+            },
+            getAllOnlinePlayersCount: function() {
+                return $http.get('/api/online_count');
+            },
+            getTotalPlayersCount: function() {
+                return $http.get('/api/total_players_count');
             },
             getServerStatus: function() {
                 return $http.get('/api/server_status');
