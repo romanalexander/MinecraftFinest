@@ -10,7 +10,12 @@
             <a class="navbar-brand" href="#">MinecraftFinest</a>
         </div>
         <ul class="nav navbar-nav">
-            <li ui-sref-active="active" ng-repeat="link in links"><a ui-sref="{{link.sref}}">{{link.name}}</a></li>
+            <li ui-sref-active="active" ng-repeat="link in links" ng-switch="link.sref">
+                <a ng-switch-when="undefined" href="{{link.href}}">{{link.name}}</a>
+                <a ng-switch-default ui-sref="{{link.sref}}">{{link.name}}</a>
+
+
+            </li>
         </ul>
     </div>
 </div>

@@ -5,8 +5,9 @@
 
     app.controller('HeaderController', ['$scope', function($scope) {
         $scope.links = [
-            {name: 'Debug Root',
-                sref: 'root.test'}
+            {name: 'Home', sref: 'root.home'},
+            {name: 'Forums', href: '/forum/'},
+            {name: 'Debug Root', sref: 'root.test'}
         ];
     }]);
 
