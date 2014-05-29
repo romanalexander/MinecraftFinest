@@ -88,6 +88,24 @@
             images: {
                 thumb: 'http://placekitten.com/300/202'
             }
+        },
+        {
+            productId: 4,
+            productName: "Minecraft Cats",
+            productDescription: "Get your own ocelot.",
+            price: 50.00,
+            images: {
+                thumb: 'http://placekitten.com/300/206'
+            }
+        },
+        {
+            productId: 5,
+            productName: "VIF",
+            productDescription: "Very important feline.",
+            price: 1000.00,
+            images: {
+                thumb: 'http://placekitten.com/300/205'
+            }
         }
     ];
 
