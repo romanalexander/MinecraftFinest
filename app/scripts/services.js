@@ -34,13 +34,18 @@
                 return $http.get('/api/leaderboards');
             }
         };
-    }
-    ])
-    ;
+    }]);
 
     app.factory('MinecraftUser', ['$resource', function($resource) {
         return $resource('/api/user/:user');
     }]);
 
-})
-();
+    app.factory('storeAPIFactory', ['$http', function($http) {
+        return {
+            getAllProducts: function() {
+                return $http.get('/api/store/products');
+            }
+        };
+    }]);
+
+})();

@@ -24,13 +24,21 @@
         });
     }]);
 
-    app.controller('GameServiceAPI', ['$rootScope', 'gameServiceAPIFactory', function($rootScope, gameServiceAPIFactory) {
+    app.controller('StoreController', ['$scope', 'storeAPIFactory', function($scope, storeAPIFactory) {
+        storeAPIFactory.getAllProducts().success(function(data) {
+            $scope.products = data;
+        });
+    }]);
+
+    app.controller('GameServiceAPI', ['$rootScope', 'gameServiceAPIFactory', '$interval', function($rootScope, gameServiceAPIFactory, $interval) {
         $rootScope.onlineUsers = [];
         $rootScope.onlineUserCount = 0;
         $rootScope.totalUserCount = 0;
         $rootScope.serverStatus = {};
         $rootScope.leaderboardData = {};
 
+        // TODO: Make this better looking?
+        // Set up initial data load
         gameServiceAPIFactory.getAllOnlinePlayers().success(function(data) {
             $rootScope.onlineUsers = data;
         });
@@ -46,5 +54,32 @@
         gameServiceAPIFactory.getLeaderboards().success(function(data) {
             $rootScope.leaderboardData = data;
         });
+
+        // Refresh that content later
+        $interval(function () {
+            gameServiceAPIFactory.getAllOnlinePlayers().success(function(data) {
+                $rootScope.onlineUsers = data;
+            });
+        }, 300000);
+        $interval(function () {
+            gameServiceAPIFactory.getAllOnlinePlayersCount().success(function(data) {
+                $rootScope.onlineUserCount = data;
+            });
+        }, 30000);
+        $interval(function () {
+            gameServiceAPIFactory.getTotalPlayersCount().success(function(data) {
+                $rootScope.totalUserCount = data;
+            });
+        }, 300000);
+        $interval(function () {
+            gameServiceAPIFactory.getServerStatus().success(function(data) {
+                $rootScope.serverStatus = data;
+            });
+        }, 30000);
+        $interval(function () {
+            gameServiceAPIFactory.getLeaderboards().success(function(data) {
+                $rootScope.leaderboardData = data;
+            });
+        }, 300000);
     }]);
 })();

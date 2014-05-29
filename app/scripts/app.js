@@ -50,7 +50,8 @@
             url: '/store',
             views: {
                 'container@': {
-                    templateUrl: 'views/store.html'
+                    templateUrl: 'views/store.html',
+                    controller: 'StoreController'
                 }
             }
         }).state('root.leaderboards', {

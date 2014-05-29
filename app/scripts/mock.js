@@ -61,6 +61,33 @@
         }
     ];
 
+    var mockProductList = [
+        {
+            productId: 1,
+            productName: "Kittens!",
+            productDescription: "Some minecraft kittens.",
+            images: {
+                thumb: 'http://placekitten.com/300/200'
+            }
+        },
+        {
+            productId: 2,
+            productName: "More Kittens!!",
+            productDescription: "Get more kittens than usual.",
+            images: {
+                thumb: 'http://placekitten.com/300/201'
+            }
+        },
+        {
+            productId: 3,
+            productName: "Kitten Attack!!!",
+            productDescription: "Hail to the kitten overlords.",
+            images: {
+                thumb: 'http://placekitten.com/300/202'
+            }
+        }
+    ];
+
     var app = angular.module('minecraftFinestApp');
     app.requires.push('ngMockE2E'); // Make sure we inject mock E2E backend during compilation time.
     app.run(['$httpBackend', '$log', function($httpBackend, $log) {
@@ -80,5 +107,6 @@
         $httpBackend.whenGET('/api/user/Notch').respond(minecraftUser);
         $httpBackend.whenGET('/api/games').respond(mockGameList);
         $httpBackend.whenGET('/api/leaderboards').respond([]);
+        $httpBackend.whenGET('/api/store/products').respond(mockProductList);
     }]);
 })();
