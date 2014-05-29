@@ -3,7 +3,7 @@
 
     var app = angular.module('minecraftFinestApp.services', []);
 
-    app.factory('gameServiceAPIFactory', ['$http', '$log', function($http, $log) {
+    app.factory('gameServiceAPIFactory', ['$http', function($http) {
         return {
             /**
              * Retreives an array of online users.
