@@ -10,7 +10,7 @@
         'minecraftFinestApp.services',
         'minecraftFinestApp.directives',
         'minecraftFinestApp.controllers'
-    ]).config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+    ]).config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
         $locationProvider.html5Mode(true);
         $urlRouterProvider.otherwise('/');
         $stateProvider.state('root', {
@@ -41,7 +41,7 @@
             url: '/test',
             views: {
                 'contentView@': {
-                    templateUrl: 'views/test.html',
+                    templateUrl: 'views/test.html'
                 }
             }
         }).state('root.store', {
