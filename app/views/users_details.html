@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <div class="row">
+        <h1>{{user.username}}</h1>
+    </div>
+    <h3>Minigame Records</h3>
+
+    <div class="row" ng-repeat="minigame in user.minigame_records">
+        <div class="well" ng-init="winPercent = 100 * (minigame.wins / (minigame.wins + minigame.losses)); lossPercent = 100 - winPercent;">
+            <h3>{{minigame.name}} Records</h3>
+            <progress>
+                <bar value="winPercent" type="success">{{minigame.wins}} Wins</bar>
+                <bar value="lossPercent" type="danger">{{minigame.losses}} Losses</bar>
+            </progress>
+        </div>
+    </div>
+</div>
