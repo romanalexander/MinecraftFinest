@@ -1,34 +1,36 @@
 <div class="container">
 
-<div class="jumbotron">
-    <h1>'Allo, 'Allo!</h1>
+    <div style="height: 305px">
+        <carousel>
+            <slide ng-repeat="game in games">
+                <a sref="{{game.sref}}"><img ng-src="{{game.images.thumb}}" style="margin:auto;"></a>
 
-    <p class="lead">
-        <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-        Always a pleasure scaffolding your apps.
-    </p>
-    <p>{{allUsers}}</p>
+                <div class="carousel-caption">
+                    <h4>{{game.name}}</h4>
 
-    <p><a class="btn btn-lg btn-success" ng-href="#" ng-click="api.refresh()">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+                    <p>{{game.description}}</p>
+                </div>
+            </slide>
+        </carousel>
+    </div>
 
-<div class="row marketing">
-    <h4>HTML5 Boilerplate</h4>
+    <div class="row marketing">
+        <h4>HTML5 Boilerplate</h4>
 
-    <p>
+        <p>
 
-    </p>
+        </p>
 
-    <h4>Angular</h4>
+        <h4>Angular</h4>
 
-    <p>
-        AngularJS is a toolset for building the framework most suited to your application development.
-    </p>
+        <p>
+            AngularJS is a toolset for building the framework most suited to your application development.
+        </p>
 
-    <h4>Karma</h4>
+        <h4>Karma</h4>
 
-    <p>Spectacular Test Runner for JavaScript.</p>
-</div>
+        <p>Spectacular Test Runner for JavaScript.</p>
+    </div>
 
 
 </div>

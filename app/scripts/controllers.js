@@ -14,6 +14,12 @@
         $scope.currentDate = new Date();
     }]);
 
+    app.controller('HomeController', ['$scope', 'gameServiceAPIFactory', function($scope, gameServiceAPIFactory) {
+        gameServiceAPIFactory.getGamesCarousel().success(function(data) {
+            $scope.games = data;
+        });
+    }]);
+
     app.controller('GameServiceAPI', ['$rootScope', 'gameServiceAPIFactory', function($rootScope, gameServiceAPIFactory) {
         $rootScope.onlineUsers = [];
         $rootScope.onlineUserCount = 0;

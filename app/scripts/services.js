@@ -5,6 +5,9 @@
 
     app.factory('gameServiceAPIFactory', ['$http', function($http) {
         return {
+            getGamesCarousel: function() {
+                return $http.get('/api/games');
+            },
             /**
              * Retreives an array of online users.
              * @param count (optional) Count of players to pull. Defaults to 100.
@@ -31,10 +34,13 @@
                 return $http.get('/api/leaderboards');
             }
         };
-    }]);
+    }
+    ])
+    ;
 
     app.factory('MinecraftUser', ['$resource', function($resource) {
         return $resource('/api/user/:user');
     }]);
 
-})();
+})
+();

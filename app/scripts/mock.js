@@ -36,6 +36,31 @@
         ]
     };
 
+    var mockGameList = [
+        {
+            id: 1,
+            sref: '',
+            name: 'Kitten Games',
+            description: 'Play this minigame!',
+            images: {
+                thumb: 'http://placekitten.com/900/300',
+                large: 'http://placekitten.com/900/300'
+            },
+            activeUsers: 100
+        },
+        {
+            id: 2,
+            sref: '',
+            name: 'Draw Kittens',
+            description: 'Play draw kittens!',
+            images: {
+                thumb: 'http://placekitten.com/901/300',
+                large: 'http://placekitten.com/901/300'
+            },
+            activeUsers: 100
+        }
+    ];
+
     var app = angular.module('minecraftFinestApp');
     app.requires.push('ngMockE2E'); // Make sure we inject mock E2E backend during compilation time.
     app.run(['$httpBackend', '$log', function($httpBackend, $log) {
@@ -53,6 +78,7 @@
         $httpBackend.whenGET('/api/total_players_count').respond('' + (mockUserList.length * 2));
         $httpBackend.whenGET('/api/server_status').respond(serverStatus);
         $httpBackend.whenGET('/api/user/Notch').respond(minecraftUser);
+        $httpBackend.whenGET('/api/games').respond(mockGameList);
         $httpBackend.whenGET('/api/leaderboards').respond([]);
     }]);
 })();

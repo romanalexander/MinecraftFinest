@@ -3,6 +3,7 @@
 
     angular.module('minecraftFinestApp', [
         'ui.router',
+        'ui.bootstrap',
         'ngAnimate',
         'ngResource',
         'ngSanitize',
@@ -34,8 +35,8 @@
                 views: {
                     'container@': {
                         templateUrl: 'views/home.html',
-                        controller: 'GameServiceAPI',
-                        controllerAs: 'api'
+                        controller: 'HomeController',
+                        controllerAs: 'homeController'
                     }
                 }
             })
