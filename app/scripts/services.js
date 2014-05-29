@@ -10,9 +10,8 @@
              * @param count (optional) Count of players to pull. Defaults to 100.
              * @returns {HttpPromise}
              */
-            getAllOnlinePlayers: function() {
-                //count = count || 100;
-                var count = 100;
+            getAllOnlinePlayers: function(count) {
+                count = count || 100;
                 return $http.get('/api/users', {'params': {'count': count}});
             },
             getAllOnlinePlayersCount: function() {
