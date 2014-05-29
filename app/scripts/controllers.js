@@ -28,6 +28,12 @@
 
     }]);
 
+    app.controller('UserDetailsController', ['$scope', '$stateParams', 'MinecraftUser', function($scope, $stateParams, MinecraftUser) {
+        var user = MinecraftUser.get({userName: $stateParams.userName}, function() { // Bind by new object in case of refactoring.
+            $scope.user = user;
+        });
+    }]);
+
     app.controller('StoreController', ['$scope', 'storeAPIFactory', function($scope, storeAPIFactory) {
         storeAPIFactory.getAllProducts().success(function(data) {
             $scope.products = data;

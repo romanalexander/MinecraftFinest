@@ -37,7 +37,7 @@
     }]);
 
     app.factory('MinecraftUser', ['$resource', function($resource) {
-        return $resource('/api/user/:user');
+        return $resource('/api/users/:userName');
     }]);
 
     app.factory('storeAPIFactory', ['$http', function($http) {

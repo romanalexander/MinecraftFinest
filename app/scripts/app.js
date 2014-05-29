@@ -66,8 +66,26 @@
                     templateUrl: 'views/help.html'
                 }
             }
+        }).state('root.users', {
+            url: '/users',
+            views: {
+                'contentView@': {
+                    templateUrl: 'views/users.html'
+                }
+            }
+        }).state('root.users.detail', {
+            url: '/:userName',
+            views: {
+                'contentView@': {
+                    templateUrl: 'views/users_details.html',
+                    controller: 'UserDetailsController'
+                }
+            }
         });
 
+    }]).run(['$rootScope', '$state', '$stateParams', function($rootScope, $state, $stateParams) {
+        $rootScope.$state = $state; // Bind state and stateparams to the root scope for full application usage.
+        $rootScope.$stateParams = $stateParams;
     }]);
 
 })();

@@ -334,22 +334,6 @@
         'TheMightyAnony'
     ];
 
-    var minecraftUser = {
-        username: 'Notch',
-        minigame_records: [
-            {
-                name: 'Minigame 1',
-                wins: 1,
-                losses: 2
-            },
-            {
-                name: 'Minigame 2',
-                wins: 2,
-                losses: 1
-            }
-        ]
-    };
-
     var mockGameList = [
         {
             id: 1,
@@ -447,12 +431,12 @@
                 return shuffled.slice(0, size);
             }
 
-            return [200, getRandomSubarray(mockUserList, Math.floor((Math.random() * 100) + 1)), {}];
+            return [200, getRandomSubarray(mockUserList, 100), {}];
         });
         $httpBackend.whenGET('/api/online_count').respond(function(method, url, data, headers) {
             return [200, Math.floor((Math.random() * 100) + 10), {}];
         });
-        $httpBackend.whenGET('/api/total_players_count').respond('' + (mockUserList.length * 2));
+        $httpBackend.whenGET('/api/total_players_count').respond(500); // Lifetime player count
         $httpBackend.whenGET('/api/server_status').respond(function(method, url, data, headers) {
                 var serverList = [
                     {
@@ -469,7 +453,28 @@
                 return [200, serverList, {}];
             }
         );
-        $httpBackend.whenGET('/api/user/Notch').respond(minecraftUser);
+        $httpBackend.whenGET(/\/api\/users\/.+/).respond(function(method, url, data, headers) {
+            var idx = url.lastIndexOf('/');
+            var userName = url.substr(idx);
+            userName = userName.replace('/', ''); // Little bit of hacking for the mocks. Won't be in production anyway.
+            var minecraftUser = {
+                username: userName,
+                minigame_records: [
+                    {
+                        name: 'TNT Run',
+                        wins: Math.floor(Math.random() * 50) + 1,
+                        losses: Math.floor(Math.random() * 100) + 1
+                    },
+                    {
+                        name: 'Attack of the Dead',
+                        wins: Math.floor(Math.random() * 50) + 1,
+                        losses: Math.floor(Math.random() * 100) + 1
+                    }
+                ]
+            };
+
+            return [200, minecraftUser, {}];
+        });
         $httpBackend.whenGET('/api/games').respond(function(method, url, data, headers) {
             return [200, mockGameList, {}];
         });
