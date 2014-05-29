@@ -66,6 +66,7 @@
             productId: 1,
             productName: "Kittens!",
             productDescription: "Some minecraft kittens.",
+            price: 5.00,
             images: {
                 thumb: 'http://placekitten.com/300/200'
             }
@@ -74,6 +75,7 @@
             productId: 2,
             productName: "More Kittens!!",
             productDescription: "Get more kittens than usual.",
+            price: 10.00,
             images: {
                 thumb: 'http://placekitten.com/300/201'
             }
@@ -82,6 +84,7 @@
             productId: 3,
             productName: "Kitten Attack!!!",
             productDescription: "Hail to the kitten overlords.",
+            price: 20.00,
             images: {
                 thumb: 'http://placekitten.com/300/202'
             }
