@@ -14,6 +14,10 @@
                 count = count || 100;
                 return $http.get('/api/users', {'params': {'count': count}});
             },
+            /**
+             * Returns a single value representing a number of all online users.
+             * @returns {HttpPromise}
+             */
             getAllOnlinePlayersCount: function() {
                 return $http.get('/api/online_count');
             },
@@ -22,6 +26,9 @@
             },
             getServerStatus: function() {
                 return $http.get('/api/server_status');
+            },
+            getLeaderboards: function() {
+                return $http.get('/api/leaderboards');
             }
         };
     }]);

@@ -18,10 +18,14 @@
                 abstract: true,
                 views: {
                     'header': {
-                        templateUrl: 'views/header.html'
+                        templateUrl: 'views/header.html',
+                        controller: 'HeaderController',
+                        controllerAs: 'headerController'
                     },
                     'footer': {
-                        templateUrl: 'views/footer.html'
+                        templateUrl: 'views/footer.html',
+                        controller: 'FooterController',
+                        controllerAs: 'footerController'
                     }
                 }
             })
@@ -30,6 +34,16 @@
                 views: {
                     'container@': {
                         templateUrl: 'views/home.html',
+                        controller: 'GameServiceAPI',
+                        controllerAs: 'api'
+                    }
+                }
+            })
+            .state('root.test', {
+                url: '/test',
+                views: {
+                    'container@': {
+                        templateUrl: 'views/test.html',
                         controller: 'GameServiceAPI',
                         controllerAs: 'api'
                     }
