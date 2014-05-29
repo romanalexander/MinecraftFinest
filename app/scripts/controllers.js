@@ -24,6 +24,10 @@
         });
     }]);
 
+    app.controller('SidebarController', ['$scope', function($scope) {
+
+    }]);
+
     app.controller('StoreController', ['$scope', 'storeAPIFactory', function($scope, storeAPIFactory) {
         storeAPIFactory.getAllProducts().success(function(data) {
             $scope.products = data;

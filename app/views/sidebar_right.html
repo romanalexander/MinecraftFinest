@@ -1,0 +1,20 @@
+<div class="col-md-4">
+    <div class="well well-lg">
+        <h2 class="text-center">Server Status</h2>
+
+        <div class="row" ng-repeat="server in serverStatus">
+            <h3>{{server.name}}</h3>
+            <progressbar animate="false" class="progress-striped active" value="server.onlineCount" max="server.totalLoad">
+                <span ng-hide="server.onlineCount > server.totalLoad">{{server.onlineCount}} / {{server.totalLoad}}</span>
+                <span ng-show="server.onlineCount > server.totalLoad">FULL</span>
+            </progressbar>
+        </div>
+        <hr>
+        <div class="row">
+            <h2 class="text-center">Online Users</h2>
+            <span ng-repeat="player in onlineUsers">
+                <minecraft-head username="player"></minecraft-head>
+            </span>
+        </div>
+    </div>
+</div>

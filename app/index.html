@@ -25,12 +25,15 @@
     <!-- Add your site or application content here -->
     <nav ui-view="header"></nav>
     <div class="container-fluid">
-        <div class="animate-fade-in" ui-view="containerFull">
-            <div ui-view="container"></div>
+        <div class="animate-fade-in" ui-view="contentViewFull">
+            <div class="row">
+                <div ui-view="contentView" class="col-md-8 animate-fade-in"></div>
+                <sidebar-right></sidebar-right>
+            </div>
         </div>
         <footer ui-view="footer"></footer>
     </div>
-
+    <game-service-api></game-service-api>
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.min.js"></script>

@@ -31,7 +31,7 @@
         }).state('root.home', {
             url: '/',
             views: {
-                'container@': {
+                'contentView@': {
                     templateUrl: 'views/home.html',
                     controller: 'HomeController',
                     controllerAs: 'homeController'
@@ -40,16 +40,14 @@
         }).state('root.test', {
             url: '/test',
             views: {
-                'container@': {
+                'contentView@': {
                     templateUrl: 'views/test.html',
-                    controller: 'GameServiceAPI',
-                    controllerAs: 'api'
                 }
             }
         }).state('root.store', {
             url: '/store',
             views: {
-                'container@': {
+                'contentView@': {
                     templateUrl: 'views/store.html',
                     controller: 'StoreController'
                 }
@@ -57,14 +55,14 @@
         }).state('root.leaderboards', {
             url: '/leaderboards',
             views: {
-                'container@': {
+                'contentView@': {
                     templateUrl: 'views/leaderboards.html'
                 }
             }
         }).state('root.help', {
             url: '/help',
             views: {
-                'container@': {
+                'contentView@': {
                     templateUrl: 'views/help.html'
                 }
             }

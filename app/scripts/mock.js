@@ -10,13 +10,13 @@
     var serverStatus = [
         {
             name: 'World 1',
-            onlineCount: 1,
-            totalLoad: 5
+            onlineCount: 55,
+            totalLoad: 50
         },
         {
             name: 'World 2',
-            onlineCount: 5,
-            totalLoad: 10
+            onlineCount: 40,
+            totalLoad: 50
         }
     ];
 
