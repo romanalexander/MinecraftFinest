@@ -4,7 +4,7 @@
 
         <div class="row" ng-repeat="server in serverStatus">
             <h3>{{server.name}}</h3>
-            <progressbar animate="false" class="progress-striped active" value="server.onlineCount" max="server.totalLoad">
+            <progressbar class="progress-striped active" value="server.onlineCount" max="server.totalLoad">
                 <span ng-hide="server.onlineCount > server.totalLoad">{{server.onlineCount}} / {{server.totalLoad}}</span>
                 <span ng-show="server.onlineCount > server.totalLoad">FULL</span>
             </progressbar>
