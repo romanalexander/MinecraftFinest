@@ -2,14 +2,24 @@
     <div class="well well-lg">
         <h2 class="text-center">Server Status</h2>
 
-        <div class="row" ng-repeat="server in serverStatus">
-            <h3>{{server.name}}</h3>
-            <progressbar class="progress-striped active" value="server.onlineCount" max="server.totalLoad">
-                <span ng-hide="server.onlineCount > server.totalLoad">{{server.onlineCount}} / {{server.totalLoad}}</span>
-                <span ng-show="server.onlineCount > server.totalLoad">FULL</span>
+        <!-- This area can't be ng-repeat because it interrupts the watch lifecycle for progressbar animation. -->
+        <div class="row">
+            <h3>{{serverStatus[0].name}}</h3>
+            <progressbar class="progress-striped active success" value="serverStatus[0].onlineCount" max="serverStatus[0].totalLoad">
+                <span ng-hide="serverStatus[0].onlineCount > serverStatus[0].totalLoad">{{serverStatus[0].onlineCount}} / {{serverStatus[0].totalLoad}}</span>
+                <span ng-show="serverStatus[0].onlineCount > serverStatus[0].totalLoad">FULL</span>
             </progressbar>
         </div>
+        <div class="row">
+            <h3>{{serverStatus[1].name}}</h3>
+            <progressbar class="progress-striped active success" value="serverStatus[1].onlineCount" max="serverStatus[1].totalLoad">
+                <span ng-hide="serverStatus[1].onlineCount > serverStatus[1].totalLoad">{{serverStatus[1].onlineCount}} / {{serverStatus[1].totalLoad}}</span>
+                <span ng-show="serverStatus[1].onlineCount > serverStatus[1].totalLoad">FULL</span>
+            </progressbar>
+        </div>
+
         <hr>
+
         <div class="row">
             <h2 class="text-center">Online Users</h2>
             <span ng-repeat="player in onlineUsers">

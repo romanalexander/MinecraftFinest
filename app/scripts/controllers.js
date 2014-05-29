@@ -85,7 +85,7 @@
             gameServiceAPIFactory.getServerStatus().success(function(data) {
                 $rootScope.serverStatus = data;
             });
-        }, 30000);
+        }, 15000);
         $interval(function () {
             gameServiceAPIFactory.getLeaderboards().success(function(data) {
                 $rootScope.leaderboardData = data;
