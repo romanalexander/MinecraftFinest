@@ -49,7 +49,6 @@
 
         // API responses.
         $httpBackend.whenGET('/api/users?count=100').respond(mockUserList);
-        $log.warn("Writing: " + mockUserList.length);
         $httpBackend.whenGET('/api/online_count').respond('' + mockUserList.length);
         $httpBackend.whenGET('/api/total_players_count').respond('' + (mockUserList.length * 2));
         $httpBackend.whenGET('/api/server_status').respond(serverStatus);
