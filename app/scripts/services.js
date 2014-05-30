@@ -5,7 +5,7 @@
 
     app.factory('gameServiceAPIFactory', ['$http', function($http) {
         return {
-            getGamesCarousel: function() {
+            getGames: function() {
                 return $http.get('/api/games');
             },
             /**

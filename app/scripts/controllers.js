@@ -6,6 +6,7 @@
     app.controller('HeaderController', ['$scope', function($scope) {
         $scope.links = [
             {name: 'Home', sref: 'root.home'},
+            {name: 'Games', sref: 'root.games'},
             {name: 'Forums', href: '/forum/'},
             {name: 'Debug Root', sref: 'root.test'},
             {name: 'Store', sref: 'root.store'},
@@ -19,7 +20,7 @@
     }]);
 
     app.controller('HomeController', ['$scope', 'gameServiceAPIFactory', function($scope, gameServiceAPIFactory) {
-        gameServiceAPIFactory.getGamesCarousel().success(function(data) {
+        gameServiceAPIFactory.getGames().success(function(data) {
             $scope.games = data;
         });
     }]);
