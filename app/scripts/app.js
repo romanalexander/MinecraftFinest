@@ -18,12 +18,12 @@
             abstract: true,
             views: {
                 'header': {
-                    templateUrl: 'views/header.html',
+                    templateUrl: '/views/header.html',
                     controller: 'HeaderController',
                     controllerAs: 'headerController'
                 },
                 'footer': {
-                    templateUrl: 'views/footer.html',
+                    templateUrl: '/views/footer.html',
                     controller: 'FooterController',
                     controllerAs: 'footerController'
                 }
@@ -32,7 +32,7 @@
             url: '/',
             views: {
                 'contentView@': {
-                    templateUrl: 'views/home.html',
+                    templateUrl: '/views/home.html',
                     controller: 'HomeController',
                     controllerAs: 'homeController'
                 }
@@ -41,14 +41,14 @@
             url: '/test',
             views: {
                 'contentView@': {
-                    templateUrl: 'views/test.html'
+                    templateUrl: '/views/test.html'
                 }
             }
         }).state('root.store', {
             url: '/store',
             views: {
                 'contentView@': {
-                    templateUrl: 'views/store.html',
+                    templateUrl: '/views/store.html',
                     controller: 'StoreController'
                 }
             }
@@ -56,28 +56,28 @@
             url: '/leaderboards',
             views: {
                 'contentView@': {
-                    templateUrl: 'views/leaderboards.html'
+                    templateUrl: '/views/leaderboards.html'
                 }
             }
         }).state('root.help', {
             url: '/help',
             views: {
                 'contentView@': {
-                    templateUrl: 'views/help.html'
+                    templateUrl: '/views/help.html'
                 }
             }
         }).state('root.users', {
             url: '/users',
             views: {
                 'contentView@': {
-                    templateUrl: 'views/users.html'
+                    templateUrl: '/views/users.html'
                 }
             }
         }).state('root.users.detail', {
             url: '/:userName',
             views: {
                 'contentView@': {
-                    templateUrl: 'views/users_details.html',
+                    templateUrl: '/views/users_details.html',
                     controller: 'UserDetailsController'
                 }
             }
