@@ -63,7 +63,8 @@
             url: '/:miniGame',
             views: {
                 'contentView@': {
-                    templateUrl: '/views/games_minigame.html'
+                    templateUrl: '/views/games_detail.html',
+                    controller: 'UserDetailsController'
                 }
             }
         }).state('root.leaderboards', {

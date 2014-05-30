@@ -1,5 +1,12 @@
 <div class="container-fluid">
-    <div class="row">
-        <p>TODO: No content here yet :(</p>
+    <h1>Minigames</h1>
+
+    <div class="row" ng-repeat="game in games">
+        <div class="well well-lg">
+            <h3><a ui-sref="root.games.detail({ miniGame: game.shortName })">{{game.fullName}}</a></h3>
+            <img ng-src="{{game.images.large}}">
+
+            <p>{{game.fullDescription}}</p>
+        </div>
     </div>
 </div>

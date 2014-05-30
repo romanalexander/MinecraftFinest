@@ -457,23 +457,25 @@
                     id: 1,
                     shortName: 'spleef',
                     fullName: 'Kitten Games',
-                    description: 'Play this minigame!',
+                    shortDescription: 'Play this minigame!',
+                    fullDescription: 'Play this minigame!',
                     images: {
                         thumb: 'http://placekitten.com/900/300',
-                        large: 'http://placekitten.com/900/300'
+                        large: 'http://placekitten.com/300/300'
                     },
-                    activeUsers: 100
+                    activeUsers: Math.floor(Math.random() * 50) + 1
                 },
                 {
                     id: 2,
                     shortName: 'halo',
                     fullName: 'Draw Kittens',
-                    description: 'Play draw kittens!',
+                    shortDescription: 'Play draw kittens!',
+                    fullDescription: 'Play draw kittens!',
                     images: {
                         thumb: 'http://placekitten.com/901/300',
-                        large: 'http://placekitten.com/901/300'
+                        large: 'http://placekitten.com/302/300'
                     },
-                    activeUsers: 100
+                    activeUsers: Math.floor(Math.random() * 50) + 1
                 }
             ];
             return [200, mockGameList, {}];

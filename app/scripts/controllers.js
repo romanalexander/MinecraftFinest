@@ -20,9 +20,7 @@
     }]);
 
     app.controller('HomeController', ['$scope', 'gameServiceAPIFactory', function($scope, gameServiceAPIFactory) {
-        gameServiceAPIFactory.getGames().success(function(data) {
-            $scope.games = data;
-        });
+
     }]);
 
     app.controller('SidebarController', ['$scope', function($scope) {
@@ -65,6 +63,10 @@
         gameServiceAPIFactory.getLeaderboards().success(function(data) {
             $rootScope.leaderboardData = data;
         });
+        gameServiceAPIFactory.getGames().success(function(data) {
+            $rootScope.games = data;
+        });
+
 
         // Refresh that content later
         $interval(function() {
