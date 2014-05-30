@@ -1,22 +1,32 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
-            <h3>Latest Features</h3>
+            <h3>Store Items</h3>
         </div>
     </div>
     <!-- /.row -->
-
+    <div class="row">
+        <div class="col-md-6" style="margin-bottom: 1em;">
+            <input class="form-control" type="text" ng-model="ignModel" placeholder="Enter your Minecraft name here" maxlength="16">
+        </div>
+    </div>
     <div class="row text-center">
-
         <div class="col-lg-3 col-md-6" ng-repeat="product in products">
             <div class="thumbnail thumbnail-product">
                 <img ng-src="{{product.images.thumb}}">
+
                 <div class="caption">
                     <h3>{{product.productName}}</h3>
+
                     <p>{{product.productDescription}}</p>
-                    <p>
-                        <a href="#" class="btn btn-primary">Buy now for {{product.price | currency:"$"}}</a>
-                    </p>
+
+                    <form method="get" action="http://mcfinest.buycraft.net/checkout/packages">
+                        <input type="hidden" name="direct" value="true">
+                        <input type="hidden" name="action" value="add">
+                        <input type="hidden" name="package" value="{{product.productId}}">
+                        <input type="hidden" name="ign" value="{{ignModel}}">
+                        <input class="btn btn-primary" type="submit" value="Buy now for {{product.price|currency:'$'}}">
+                    </form>
                 </div>
             </div>
         </div>

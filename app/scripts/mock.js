@@ -361,7 +361,7 @@
 
     var mockProductList = [
         {
-            productId: 1,
+            productId: 839767,
             productName: "Kittens!",
             productDescription: "Some minecraft kittens.",
             price: 5.00,
@@ -370,7 +370,7 @@
             }
         },
         {
-            productId: 2,
+            productId: 839772,
             productName: "More Kittens!!",
             productDescription: "Get more kittens than usual.",
             price: 10.00,
@@ -379,7 +379,7 @@
             }
         },
         {
-            productId: 3,
+            productId: 839773,
             productName: "Kitten Attack!!!",
             productDescription: "Hail to the kitten overlords.",
             price: 20.00,
@@ -388,7 +388,7 @@
             }
         },
         {
-            productId: 4,
+            productId: 839774,
             productName: "Minecraft Cats",
             productDescription: "Get your own ocelot.",
             price: 50.00,
@@ -397,7 +397,7 @@
             }
         },
         {
-            productId: 5,
+            productId: 839775,
             productName: "VIF",
             productDescription: "Very important feline.",
             price: 1000.00,
