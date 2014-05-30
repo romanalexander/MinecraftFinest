@@ -52,6 +52,13 @@
                     controller: 'StoreController'
                 }
             }
+        }).state('root.games', {
+            url: '/games',
+            views: {
+                'contentView@': {
+                    templateUrl: '/views/games.html'
+                }
+            }
         }).state('root.leaderboards', {
             url: '/leaderboards',
             views: {
