@@ -436,7 +436,7 @@
         $httpBackend.whenGET('/api/online_count').respond(function(method, url, data, headers) {
             return [200, Math.floor((Math.random() * 100) + 10), {}];
         });
-        $httpBackend.whenGET('/api/total_players_count').respond(500); // Lifetime player count
+        $httpBackend.whenGET('/api/total_players_count').respond('500'); // Lifetime player count
         $httpBackend.whenGET('/api/server_status').respond(function(method, url, data, headers) {
                 var serverList = [
                     {
