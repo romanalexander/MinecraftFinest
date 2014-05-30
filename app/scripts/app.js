@@ -64,7 +64,7 @@
             views: {
                 'contentView@': {
                     templateUrl: '/views/games_detail.html',
-                    controller: 'UserDetailsController'
+                    controller: 'GameDetailsController'
                 }
             }
         }).state('root.leaderboards', {

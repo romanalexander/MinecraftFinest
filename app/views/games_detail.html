@@ -1,5 +1,6 @@
-<div class="container-fluid">
-    <div class="row">
-        <p>TODO: No content here yet :(</p>
-    </div>
+<div ng-hide="game">
+    <h1>Unknown Minigame</h1>
+</div>
+<div ng-show="game">
+    <h1>{{game.fullName}}</h1>
 </div>

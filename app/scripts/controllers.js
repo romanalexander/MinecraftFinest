@@ -33,6 +33,21 @@
         });
     }]);
 
+    app.controller('GameDetailsController', ['$scope', '$stateParams', '$rootScope', function($scope, $stateParams, $rootScope) {
+        var games = $rootScope.games;
+        var game = null;
+        try {
+            for(var i = 0; i < games.length; i++) {
+                if(games[i].shortName.toLowerCase() === $stateParams.miniGame.toLowerCase()) {
+                    game = games[1];
+                    break;
+                }
+            }
+        } catch(ex) {
+        }
+        $scope.game = game;
+    }]);
+
     app.controller('StoreController', ['$scope', 'storeAPIFactory', function($scope, storeAPIFactory) {
         storeAPIFactory.getAllProducts().success(function(data) {
             $scope.products = data;
