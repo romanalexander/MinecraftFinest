@@ -66,30 +66,34 @@
         });
 
         // Refresh that content later
-        $interval(function () {
+        $interval(function() {
             gameServiceAPIFactory.getAllOnlinePlayers().success(function(data) {
                 $rootScope.onlineUsers = data;
             });
         }, 300000);
-        $interval(function () {
+        $interval(function() {
             gameServiceAPIFactory.getAllOnlinePlayersCount().success(function(data) {
                 $rootScope.onlineUserCount = data;
             });
         }, 30000);
-        $interval(function () {
+        $interval(function() {
             gameServiceAPIFactory.getTotalPlayersCount().success(function(data) {
                 $rootScope.totalUserCount = data;
             });
         }, 300000);
-        $interval(function () {
+        $interval(function() {
             gameServiceAPIFactory.getServerStatus().success(function(data) {
                 $rootScope.serverStatus = data;
             });
         }, 15000);
-        $interval(function () {
+        $interval(function() {
             gameServiceAPIFactory.getLeaderboards().success(function(data) {
                 $rootScope.leaderboardData = data;
             });
         }, 300000);
+    }]);
+
+    app.controller('LeaderboardController', ['$scope', function($scope) {
+
     }]);
 })();
