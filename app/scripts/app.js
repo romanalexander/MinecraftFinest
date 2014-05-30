@@ -56,7 +56,8 @@
             url: '/leaderboards',
             views: {
                 'contentView@': {
-                    templateUrl: '/views/leaderboards.html'
+                    templateUrl: '/views/leaderboards.html',
+                    controller: 'LeaderboardController'
                 }
             }
         }).state('root.help', {
