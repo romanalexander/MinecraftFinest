@@ -59,6 +59,13 @@
                     templateUrl: '/views/games.html'
                 }
             }
+        }).state('root.games.detail', {
+            url: '/:miniGame',
+            views: {
+                'contentView@': {
+                    templateUrl: '/views/games_minigame.html'
+                }
+            }
         }).state('root.leaderboards', {
             url: '/leaderboards',
             views: {
