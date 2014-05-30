@@ -334,31 +334,6 @@
         'TheMightyAnony'
     ];
 
-    var mockGameList = [
-        {
-            id: 1,
-            sref: '',
-            name: 'Kitten Games',
-            description: 'Play this minigame!',
-            images: {
-                thumb: 'http://placekitten.com/900/300',
-                large: 'http://placekitten.com/900/300'
-            },
-            activeUsers: 100
-        },
-        {
-            id: 2,
-            sref: '',
-            name: 'Draw Kittens',
-            description: 'Play draw kittens!',
-            images: {
-                thumb: 'http://placekitten.com/901/300',
-                large: 'http://placekitten.com/901/300'
-            },
-            activeUsers: 100
-        }
-    ];
-
     var mockProductList = [
         {
             productId: 839767,
@@ -476,9 +451,38 @@
             return [200, minecraftUser, {}];
         });
         $httpBackend.whenGET('/api/games').respond(function(method, url, data, headers) {
+
+            var mockGameList = [
+                {
+                    id: 1,
+                    shortName: 'spleef',
+                    fullName: 'Kitten Games',
+                    description: 'Play this minigame!',
+                    images: {
+                        thumb: 'http://placekitten.com/900/300',
+                        large: 'http://placekitten.com/900/300'
+                    },
+                    activeUsers: 100
+                },
+                {
+                    id: 2,
+                    shortName: 'halo',
+                    fullName: 'Draw Kittens',
+                    description: 'Play draw kittens!',
+                    images: {
+                        thumb: 'http://placekitten.com/901/300',
+                        large: 'http://placekitten.com/901/300'
+                    },
+                    activeUsers: 100
+                }
+            ];
             return [200, mockGameList, {}];
         });
-        $httpBackend.whenGET('/api/leaderboards').respond([]);
+
+        $httpBackend.whenGET('/api/leaderboards').respond(function(method, url, data, headers) {
+            var mockLeaderboardData = [];
+            return [200, mockLeaderboardData, {}];
+        });
         $httpBackend.whenGET('/api/store/products').respond(mockProductList);
     }]);
 })();
