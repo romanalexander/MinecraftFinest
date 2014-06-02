@@ -382,6 +382,28 @@
         }
     ];
 
+    function getRandomSubarray(arr, size) {
+        var shuffled = arr.slice(0), i = arr.length, temp, index;
+        while(i--) {
+            index = Math.floor((i + 1) * Math.random());
+            temp = shuffled[index];
+            shuffled[index] = shuffled[i];
+            shuffled[i] = temp;
+        }
+        return shuffled.slice(0, size);
+    };
+
+    var shuffleArray = function(array) {
+        var m = array.length, t, i;
+        while(m) {
+            i = Math.floor(Math.random() * m--);
+            t = array[m];
+            array[m] = array[i];
+            array[i] = t;
+        }
+        return array;
+    };
+
     var app = angular.module('minecraftFinestApp');
     app.requires.push('ngMockE2E'); // Make sure we inject mock E2E backend during compilation time.
     app.run(['$httpBackend', '$log', function($httpBackend, $log) {
@@ -395,17 +417,6 @@
 
         // API responses.
         $httpBackend.whenGET('/api/users?count=100').respond(function(method, url, data, headers) {
-            function getRandomSubarray(arr, size) {
-                var shuffled = arr.slice(0), i = arr.length, temp, index;
-                while(i--) {
-                    index = Math.floor((i + 1) * Math.random());
-                    temp = shuffled[index];
-                    shuffled[index] = shuffled[i];
-                    shuffled[i] = temp;
-                }
-                return shuffled.slice(0, size);
-            }
-
             return [200, getRandomSubarray(mockUserList, 100), {}];
         });
         $httpBackend.whenGET('/api/online_count').respond(function(method, url, data, headers) {
@@ -484,6 +495,24 @@
         $httpBackend.whenGET('/api/leaderboards').respond(function(method, url, data, headers) {
             var mockLeaderboardData = [];
             return [200, mockLeaderboardData, {}];
+        });
+        var mockLeaderboardDetails = {'spleef': [], 'halo': []};
+        $httpBackend.whenGET(/\/api\/leaderboards\/.+/).respond(function(method, url, data, headers) {
+            var substringIdx = url.lastIndexOf('/');
+            var gameId = url.substr(substringIdx);
+            gameId = parseInt(gameId.replace('/', '')); // Little bit of hacking for the mocks. Won't be in production anyway.
+
+            var idx;
+            shuffleArray(mockUserList);
+            for(idx = 0; idx < 100; idx++) {
+                mockLeaderboardDetails.spleef.append({rank: idx, username: mockUserList[idx], wins: Math.floor(Math.random() * 50) + 1, losses: Math.floor(Math.random() * 50) + 1, accuracy: Math.floor(Math.random() * 50) + 1});
+            }
+            shuffleArray(mockUserList);
+            for(idx = 0; idx < 100; idx++) {
+                mockLeaderboardDetails.halo.append({rank: idx, username: mockUserList[idx], wins: Math.floor(Math.random() * 50) + 1, losses: Math.floor(Math.random() * 50) + 1, kills: Math.floor(Math.random() * 50) + 1});
+            }
+
+            return [200, mockLeaderboardDetails, {}];
         });
         $httpBackend.whenGET('/api/store/products').respond(mockProductList);
     }]);

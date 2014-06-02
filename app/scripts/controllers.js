@@ -111,7 +111,23 @@
         }, 300000);
     }]);
 
-    app.controller('LeaderboardController', ['$scope', function($scope) {
-
+    app.controller('LeaderboardController', ['$scope', '$timeout', 'Leaderboards', 'ngTableParams', function($scope, $timeout, Leaderboards, ngTableParams) {
+        $scope.leaderboardParams = new ngTableParams({
+            page: 1,
+            count: 100,
+            sorting: {
+                rank: 'desc'
+            }
+        }, {
+            total: 0,
+            getData: function($defer, params) {
+                Leaderboards.get(params.url(), function(data) {
+                    $timeout(function() {
+                        params.total(data.total);
+                        $defer.resolve(data.result);
+                    }, 1000);
+                });
+            }
+        });
     }]);
 })();

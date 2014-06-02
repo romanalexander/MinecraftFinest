@@ -40,6 +40,10 @@
         return $resource('/api/users/:userName');
     }]);
 
+    app.factory('Leaderboard', ['$resource', function($resource) {
+        return $resource('/api/leaderboards/:id');
+    }]);
+
     app.factory('storeAPIFactory', ['$http', function($http) {
         return {
             getAllProducts: function() {

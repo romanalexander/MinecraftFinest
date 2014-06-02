@@ -7,6 +7,7 @@
         'ngAnimate',
         'ngResource',
         'ngSanitize',
+        'ngTable',
         'minecraftFinestApp.services',
         'minecraftFinestApp.directives',
         'minecraftFinestApp.controllers'
