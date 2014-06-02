@@ -111,7 +111,7 @@
         }, 300000);
     }]);
 
-    app.controller('LeaderboardController', ['$scope', '$timeout', 'Leaderboards', 'ngTableParams', function($scope, $timeout, Leaderboards, ngTableParams) {
+    app.controller('LeaderboardController', ['$scope', '$timeout', 'Leaderboard', 'ngTableParams', function($scope, $timeout, Leaderboard, ngTableParams) {
         $scope.leaderboardParams = new ngTableParams({
             page: 1,
             count: 100,
