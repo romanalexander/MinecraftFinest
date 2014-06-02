@@ -121,7 +121,7 @@
         }, {
             total: 0,
             getData: function($defer, params) {
-                Leaderboards.get(params.url(), function(data) {
+                Leaderboard.get(params.url(), function(data) {
                     $timeout(function() {
                         params.total(data.total);
                         $defer.resolve(data.result);
