@@ -29,9 +29,6 @@
             },
             getServerStatus: function() {
                 return $http.get('/api/server_status');
-            },
-            getLeaderboards: function() {
-                return $http.get('/api/leaderboards');
             }
         };
     }]);
