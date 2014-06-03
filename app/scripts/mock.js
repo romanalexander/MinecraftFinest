@@ -512,7 +512,7 @@
                 retrData.push({rank: idx, username: mockUserList[idx], wins: Math.floor(Math.random() * 50) + 1, losses: Math.floor(Math.random() * 50) + 1, accuracy: Math.floor(Math.random() * 50) + 1});
             }
 
-            return [200, {total: retrData.length * 2, result: retrData}, {}];
+            return [200, {total: retrData.length * 4, result: retrData}, {}];
         });
         $httpBackend.whenGET('/api/store/products').respond(mockProductList);
     }]);
