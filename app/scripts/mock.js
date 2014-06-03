@@ -493,8 +493,21 @@
         });
 
         $httpBackend.whenGET(/\/api\/leaderboards\/.+\/?.+/).respond(function(method, url, data, headers) {
-            var retrData = [];
             var idx;
+            var urlSplitted = url.split('?')[1].split('&');
+            var count = 0, page = 0;
+
+            for(idx = 0; idx < urlSplitted.length; idx++) {
+                var splitParts = urlSplitted[idx].split('=');
+                if(splitParts[0] === 'count') {
+                    count = parseInt(splitParts[1]);
+                } else if(splitParts[0] === 'page') {
+                    page = parseInt(splitParts[1]);
+                }
+            }
+
+            var retrData = [];
+
             shuffleArray(mockUserList);
             for(idx = 1; idx <= 100; idx++) {
                 retrData.push({rank: idx, username: mockUserList[idx], wins: Math.floor(Math.random() * 50) + 1, losses: Math.floor(Math.random() * 50) + 1, accuracy: Math.floor(Math.random() * 50) + 1});

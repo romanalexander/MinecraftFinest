@@ -107,7 +107,7 @@
         $scope.leaderboardParams = new ngTableParams({
             id: $scope.type,
             page: 1,
-            count: 100
+            count: $scope.count
         }, {
             counts: [],
             total: 0,
