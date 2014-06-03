@@ -492,10 +492,6 @@
             return [200, mockGameList, {}];
         });
 
-        $httpBackend.whenGET('/api/leaderboards').respond(function(method, url, data, headers) {
-            var mockLeaderboardData = [];
-            return [200, mockLeaderboardData, {}];
-        });
         $httpBackend.whenGET(/\/api\/leaderboards\/.+\/?.+/).respond(function(method, url, data, headers) {
             var retrData = [];
             var idx;

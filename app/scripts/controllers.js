@@ -75,9 +75,6 @@
         gameServiceAPIFactory.getServerStatus().success(function(data) {
             $rootScope.serverStatus = data;
         });
-        gameServiceAPIFactory.getLeaderboards().success(function(data) {
-            $rootScope.leaderboardData = data;
-        });
         gameServiceAPIFactory.getGames().success(function(data) {
             $rootScope.games = data;
         });
@@ -104,11 +101,6 @@
                 $rootScope.serverStatus = data;
             });
         }, 15000);
-        $interval(function() {
-            gameServiceAPIFactory.getLeaderboards().success(function(data) {
-                $rootScope.leaderboardData = data;
-            });
-        }, 300000);
     }]);
 
     app.controller('LeaderboardController', ['$scope', '$timeout', 'Leaderboard', 'ngTableParams', function($scope, $timeout, Leaderboard, ngTableParams) {
