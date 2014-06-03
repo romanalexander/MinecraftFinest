@@ -508,11 +508,11 @@
 
             var retrData = [];
             shuffleArray(mockUserList);
-            for(idx = 1; idx <= 100; idx++) {
+            for(idx = 1; idx <= count; idx++) {
                 retrData.push({rank: idx, username: mockUserList[idx], wins: Math.floor(Math.random() * 50) + 1, losses: Math.floor(Math.random() * 50) + 1, accuracy: Math.floor(Math.random() * 50) + 1});
             }
 
-            return [200, {total: retrData.length, result: retrData}, {}];
+            return [200, {total: retrData.length * 2, result: retrData}, {}];
         });
         $httpBackend.whenGET('/api/store/products').respond(mockProductList);
     }]);
