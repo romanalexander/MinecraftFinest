@@ -26,7 +26,7 @@
             restrict: 'E',
             templateUrl: '/views/minecraft_head.html',
             scope: {
-                username: '=username'
+                username: '='
             }
         };
     });
