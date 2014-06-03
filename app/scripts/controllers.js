@@ -113,19 +113,16 @@
 
     app.controller('LeaderboardController', ['$scope', '$timeout', 'Leaderboard', 'ngTableParams', function($scope, $timeout, Leaderboard, ngTableParams) {
         $scope.leaderboardParams = new ngTableParams({
+            id: $scope.type,
             page: 1,
-            count: 100,
-            sorting: {
-                rank: 'desc'
-            }
+            count: 100
         }, {
+            counts: [],
             total: 0,
             getData: function($defer, params) {
                 Leaderboard.get(params.url(), function(data) {
-                    $timeout(function() {
-                        params.total(data.total);
-                        $defer.resolve(data.result);
-                    }, 1000);
+                    params.total(data.total);
+                    $defer.resolve(data.result);
                 });
             }
         });

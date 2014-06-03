@@ -1,0 +1,22 @@
+<table ng-table="leaderboardParams" class="table table-striped">
+    <tbody>
+    <tr ng-repeat="user in $data">
+        <td data-title="'Rank'">
+            #{{user.rank}}
+        </td>
+        <td data-title="'Name'">
+            <minecraft-head username="user.username"></minecraft-head>
+            <a ui-sref="root.users.detail({userName: user.username})">{{user.username}}</a>
+        </td>
+        <td data-title="'Wins'">
+            {{user.wins}}
+        </td>
+        <td data-title="'Losses'">
+            {{user.losses}}
+        </td>
+        <td data-title="'Accuracy'">
+            {{user.accuracy}}
+        </td>
+    </tr>
+    </tbody>
+</table>

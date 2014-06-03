@@ -496,23 +496,15 @@
             var mockLeaderboardData = [];
             return [200, mockLeaderboardData, {}];
         });
-        var mockLeaderboardDetails = {'spleef': [], 'halo': []};
-        $httpBackend.whenGET(/\/api\/leaderboards\/.+/).respond(function(method, url, data, headers) {
-            var substringIdx = url.lastIndexOf('/');
-            var gameId = url.substr(substringIdx);
-            gameId = parseInt(gameId.replace('/', '')); // Little bit of hacking for the mocks. Won't be in production anyway.
-
+        $httpBackend.whenGET(/\/api\/leaderboards\/.+\/?.+/).respond(function(method, url, data, headers) {
+            var retrData = [];
             var idx;
             shuffleArray(mockUserList);
-            for(idx = 0; idx < 100; idx++) {
-                mockLeaderboardDetails.spleef.append({rank: idx, username: mockUserList[idx], wins: Math.floor(Math.random() * 50) + 1, losses: Math.floor(Math.random() * 50) + 1, accuracy: Math.floor(Math.random() * 50) + 1});
-            }
-            shuffleArray(mockUserList);
-            for(idx = 0; idx < 100; idx++) {
-                mockLeaderboardDetails.halo.append({rank: idx, username: mockUserList[idx], wins: Math.floor(Math.random() * 50) + 1, losses: Math.floor(Math.random() * 50) + 1, kills: Math.floor(Math.random() * 50) + 1});
+            for(idx = 1; idx <= 100; idx++) {
+                retrData.push({rank: idx, username: mockUserList[idx], wins: Math.floor(Math.random() * 50) + 1, losses: Math.floor(Math.random() * 50) + 1, accuracy: Math.floor(Math.random() * 50) + 1});
             }
 
-            return [200, mockLeaderboardDetails, {}];
+            return [200, {total: retrData.length, result: retrData}, {}];
         });
         $httpBackend.whenGET('/api/store/products').respond(mockProductList);
     }]);

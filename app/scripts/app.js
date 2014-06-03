@@ -71,9 +71,8 @@
         }).state('root.leaderboards', {
             url: '/leaderboards',
             views: {
-                'contentView@': {
-                    templateUrl: '/views/leaderboards.html',
-                    controller: 'LeaderboardController'
+                'contentViewFull@': {
+                    templateUrl: '/views/leaderboards.html'
                 }
             }
         }).state('root.help', {

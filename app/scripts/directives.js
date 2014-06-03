@@ -17,17 +17,41 @@
         return {
             restrict: 'E',
             controller: 'SidebarController',
-            templateUrl: 'views/sidebar_right.html'
+            templateUrl: '/views/sidebar_right.html'
         };
     });
 
     app.directive('minecraftHead', function() {
         return {
             restrict: 'E',
-            templateUrl: 'views/minecraft_head.html',
+            templateUrl: '/views/minecraft_head.html',
             scope: {
                 username: '=username'
             }
+        };
+    });
+
+    app.directive('leaderboardsSpleef', function() {
+        return {
+            restrict: 'E',
+            templateUrl: '/views/leaderboard_spleef.html',
+            scope: {
+                type: '@',
+                count: '@'
+            },
+            controller: 'LeaderboardController'
+        };
+    });
+
+    app.directive('leaderboardsHalo', function() {
+        return {
+            restrict: 'E',
+            templateUrl: '/views/leaderboard_halo.html',
+            scope: {
+                type: '@',
+                count: '@'
+            },
+            controller: 'LeaderboardController'
         };
     });
 
