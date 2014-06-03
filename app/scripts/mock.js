@@ -507,7 +507,6 @@
             }
 
             var retrData = [];
-
             shuffleArray(mockUserList);
             for(idx = 1; idx <= 100; idx++) {
                 retrData.push({rank: idx, username: mockUserList[idx], wins: Math.floor(Math.random() * 50) + 1, losses: Math.floor(Math.random() * 50) + 1, accuracy: Math.floor(Math.random() * 50) + 1});
