@@ -509,7 +509,7 @@
             var retrData = [];
             shuffleArray(mockUserList);
             for(idx = 1; idx <= count; idx++) {
-                retrData.push({rank: idx, username: mockUserList[idx], wins: Math.floor(Math.random() * 50) + 1, losses: Math.floor(Math.random() * 50) + 1, accuracy: Math.floor(Math.random() * 50) + 1});
+                retrData.push({rank: idx + (count * (page - 1)), username: mockUserList[idx], wins: Math.floor(Math.random() * 50) + 1, losses: Math.floor(Math.random() * 50) + 1, accuracy: Math.floor(Math.random() * 50) + 1});
             }
 
             return [200, {total: retrData.length * 4, result: retrData}, {}];
