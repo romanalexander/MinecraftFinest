@@ -29,6 +29,10 @@
             },
             getServerStatus: function() {
                 return $http.get('/api/server_status');
+            },
+            getTopStats: function(id) {
+                return $http.get('/api/top_stats/' + id);
+
             }
         };
     }]);

@@ -5,9 +5,7 @@
             #{{user.rank}}
         </td>
         <td data-title="'Name'">
-            <a ui-sref="root.users.detail({userName: user.username})">
-                <minecraft-head username="user.username"></minecraft-head> {{user.username}}
-            </a>
+            <minecraft-user username="user.username"></minecraft-user>
         </td>
         <td data-title="'Wins'">
             {{user.wins}}

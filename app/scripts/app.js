@@ -56,7 +56,7 @@
         }).state('root.games', {
             url: '/games',
             views: {
-                'contentView@': {
+                'contentViewFull@': {
                     templateUrl: '/views/games.html'
                 }
             }

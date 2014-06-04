@@ -1,12 +1,17 @@
 <div class="container-fluid">
     <h1>Minigames</h1>
 
-    <div class="row" ng-repeat="game in games">
-        <div class="well well-lg">
-            <h3><a ui-sref="root.games.detail({ miniGame: game.shortName })">{{game.fullName}}</a></h3>
-            <img ng-src="{{game.images.large}}">
+    <div class="well well-lg" ng-repeat="game in games">
+        <div class="row">
+            <div class="col-md-8">
+                <h3><a ui-sref="root.games.detail({ miniGame: game.shortName })">{{game.fullName}}</a></h3>
+                <img ng-src="{{game.images.large}}">
 
-            <p>{{game.fullDescription}}</p>
+                <p>{{game.fullDescription}}</p>
+            </div>
+            <div class="col-md-4">
+                <top-stats type="game.shortName"></top-stats>
+            </div>
         </div>
     </div>
 </div>

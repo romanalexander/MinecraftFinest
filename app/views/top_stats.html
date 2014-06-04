@@ -1,0 +1,7 @@
+<div ng-repeat="stat in data">
+    <h3>{{stat.name}}</h3>
+    <ol >
+        <li ng-repeat="playerEntry in stat.scores"><minecraft-user username="playerEntry.username"></minecraft-user> &mdash; {{playerEntry.value}}</li>
+    </ol>
+    <hr ng-hide="$last">
+</div>

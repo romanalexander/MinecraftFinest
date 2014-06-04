@@ -21,6 +21,16 @@
         };
     });
 
+    app.directive('minecraftUser', function() {
+        return {
+            restrict: 'E',
+            templateUrl: '/views/minecraft_user.html',
+            scope: {
+                username: '='
+            }
+        };
+    });
+
     app.directive('minecraftHead', function() {
         return {
             restrict: 'E',
@@ -28,6 +38,17 @@
             scope: {
                 username: '='
             }
+        };
+    });
+
+    app.directive('topStats', function () {
+        return {
+            restrict: 'E',
+            templateUrl: '/views/top_stats.html',
+            scope: {
+                type: '='
+            },
+            controller: 'TopStatsController'
         };
     });
 

@@ -391,9 +391,9 @@
             shuffled[i] = temp;
         }
         return shuffled.slice(0, size);
-    };
+    }
 
-    var shuffleArray = function(array) {
+    function shuffleArray(array) {
         var m = array.length, t, i;
         while(m) {
             i = Math.floor(Math.random() * m--);
@@ -402,7 +402,11 @@
             array[i] = t;
         }
         return array;
-    };
+    }
+
+    function getRandomPlayer() {
+        return mockUserList[Math.floor(Math.random() * mockUserList.length)];
+    }
 
     var app = angular.module('minecraftFinestApp');
     app.requires.push('ngMockE2E'); // Make sure we inject mock E2E backend during compilation time.
@@ -515,5 +519,71 @@
             return [200, {total: retrData.length * 4, result: retrData}, {}];
         });
         $httpBackend.whenGET('/api/store/products').respond(mockProductList);
+        $httpBackend.whenGET(/\/api\/top_stats\/.+/).respond(function(method, url, data, headers) {
+            var idx = url.lastIndexOf('/');
+            var statsType = url.substr(idx);
+            statsType = statsType.replace('/', ''); // Little bit of hacking for the mocks. Won't be in production anyway.
+
+            var mockTopStatsData = {
+                'spleef': [
+                    {
+                        name: 'Most Kills',
+                        scores: [
+                            {
+                                username: getRandomPlayer(),
+                                value: 10
+                            },
+                            {
+                                username: getRandomPlayer(),
+                                value: 10
+                            }
+                        ]
+                    },
+                    {
+                        name: 'Most Deaths',
+                        scores: [
+                            {
+                                username: getRandomPlayer(),
+                                value: 10
+                            },
+                            {
+                                username: getRandomPlayer(),
+                                value: 10
+                            }
+                        ]
+                    }
+                ],
+                'halo': [
+                    {
+                        name: 'Most Kills',
+                        scores: [
+                            {
+                                username: getRandomPlayer(),
+                                value: 10
+                            },
+                            {
+                                username: getRandomPlayer(),
+                                value: 10
+                            }
+                        ]
+                    },
+                    {
+                        name: 'Most Deaths',
+                        scores: [
+                            {
+                                username: getRandomPlayer(),
+                                value: 10
+                            },
+                            {
+                                username: getRandomPlayer(),
+                                value: 10
+                            }
+                        ]
+                    }
+                ],
+            };
+
+            return [200, mockTopStatsData[statsType], {}];
+        });
     }]);
 })();
