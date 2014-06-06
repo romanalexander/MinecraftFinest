@@ -41,7 +41,7 @@
         };
     });
 
-    app.directive('topStats', function () {
+    app.directive('topStats', function() {
         return {
             restrict: 'E',
             templateUrl: '/views/top_stats.html',
@@ -73,6 +73,14 @@
                 count: '@'
             },
             controller: 'LeaderboardController'
+        };
+    });
+
+    app.directive('holderFix', function() {
+        return {
+            link: function(scope, element, attrs) {
+                Holder.run({ images: element[0], nocss: true });
+            }
         };
     });
 
