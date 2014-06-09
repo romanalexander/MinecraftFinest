@@ -5,16 +5,16 @@
         <!-- This area can't be ng-repeat because it interrupts the watch lifecycle for progressbar animation. -->
         <div class="row">
             <h3>{{serverStatus[0].name}}</h3>
-            <progressbar class="progress-striped active success" value="serverStatus[0].onlineCount" max="serverStatus[0].totalLoad">
+            <progressbar class="progress-striped active success" value="(serverStatus[0].onlineCount / serverStatus[0].totalLoad) * 100" max="100">
                 <span ng-hide="serverStatus[0].onlineCount > serverStatus[0].totalLoad">{{serverStatus[0].onlineCount}} / {{serverStatus[0].totalLoad}}</span>
-                <span ng-show="serverStatus[0].onlineCount > serverStatus[0].totalLoad">FULL</span>
+                <span ng-show="serverStatus[0].onlineCount > serverStatus[0].totalLoad">{{serverStatus[0].onlineCount}} (FULL)</span>
             </progressbar>
         </div>
         <div class="row">
             <h3>{{serverStatus[1].name}}</h3>
-            <progressbar class="progress-striped active success" value="serverStatus[1].onlineCount" max="serverStatus[1].totalLoad">
+            <progressbar class="progress-striped active success" value="(serverStatus[1].onlineCount / serverStatus[1].totalLoad) * 100" max="100">
                 <span ng-hide="serverStatus[1].onlineCount > serverStatus[1].totalLoad">{{serverStatus[1].onlineCount}} / {{serverStatus[1].totalLoad}}</span>
-                <span ng-show="serverStatus[1].onlineCount > serverStatus[1].totalLoad">FULL</span>
+                <span ng-show="serverStatus[1].onlineCount > serverStatus[1].totalLoad">{{serverStatus[1].onlineCount}} (FULL)</span>
             </progressbar>
         </div>
 
