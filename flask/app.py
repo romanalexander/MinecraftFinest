@@ -13,6 +13,11 @@ db = SQLAlchemy(app)
 
 
 @app.route('/')
+@app.route('/help')
+@app.route('/leaderboards')
+@app.route('/games')
+@app.route('/store')
+@app.route('/test')
 def hello_world():
     return app.send_static_file('index.html'), 200
 
@@ -166,7 +171,7 @@ def get_leaderboard(game):
         page = 1
 
     retrList = []
-    for idx in range(1, count):
+    for idx in range(1, count + 1):
         retrList.append({
             'rank': idx + (count * (page - 1)),
             'username': random.choice(mockUserList),
@@ -176,12 +181,12 @@ def get_leaderboard(game):
 
         })
 
-    return jsonify(retrList)
+    return jsonify({'total': len(retrList) * 4, 'result': retrList})
 
 
 @app.route('/api/store/products')
 def get_all_products():
-    return jsonify(mockProductList)
+    return json.dumps(mockProductList)
 
 
 @app.route('/api/top_stats/<game>')
