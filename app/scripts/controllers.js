@@ -122,7 +122,6 @@
 
     app.controller('TopStatsController', ['$scope', 'gameServiceAPIFactory', function($scope, gameServiceAPIFactory) {
         gameServiceAPIFactory.getTopStats($scope.type).success(function(data) {
-            console.dir(data);
             $scope.data = data;
         });
     }]);
